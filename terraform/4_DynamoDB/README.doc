@@ -1,0 +1,16 @@
+<data.tf> in neuen Ordner eingefügt; von struktur-ec2 zu dynamo-iac
+<backend.tf> key editieren zu neuen "Ordner"; Bsp.: <key = "dynamodb-example/terraform.tfstate">
+<main.tf> resource "aws_instance" zu "aws_dynamodb_table"; "my_instance" zu "my_dynamodb"
+<main.tf> mit Inhalt füllen (Name -> Tabellenname, hash_key -> Partitionsschlüssel, billing_mode -> Bezahlvariante, read_capacity -> Anzahl Leseberechtigung, write_capacity -> Anzahl Schreibgeberchtigung, attribute -> Spalte der Tabelle, Tags -> Name der Dynamo-Tabelle) Quelle: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table
+<outputs.tf> Ausgabe der DynamoDB ID und des DynamoDB Namens
+<security_group.tf> gelöscht, keine SG notwendig für DynamoDB Quelle: https://stackoverflow.com/questions/37706126/can-i-use-ec2-type-secuirty-groups-with-amazon-dynamodb#:~:text=As%20you%20have%20noted%2C%20DynamoDB,access%20to%20your%20DynamoDB%20tables.
+<variables.tf> löschen von <variable "instance_type"> und <variable "key_name">
+<terraform.tfvars> löschen von <key_name = "Schlüsselpaar-Name">
+terraform init
+terraform fmt
+terraform plan
+terraform validate
+terraform apply
+DynamoDB in AWS-UI im Browser prüfen
+tfstate in AWS-UI S3 Bucket im Browser prüfen
+terraform destroy
